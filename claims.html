@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Insurance Mutual — Volcano Insurance for Western PA, Ohio, Vegas & More</title>
+<title>File a Claim — Insurance Mutual</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#1B2A4A;
@@ -305,6 +305,62 @@
   .filter[aria-pressed="true"]{background:var(--navy); border-color:var(--navy); color:#fff;}
   .note{font-size:.76rem; color:var(--ink-soft); margin-top:14px; max-width:70ch;}
   [hidden]{display:none !important;}
+
+  /* ---------- page ---------- */
+
+  .claim-grid{display:grid; grid-template-columns:1fr 300px; gap:24px; align-items:start;}
+  @media (max-width:900px){ .claim-grid{grid-template-columns:1fr;} }
+  .progress{display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin:0 0 24px; padding:0; list-style:none;}
+  .progress li{padding:10px 12px 10px 14px; border-left:2px solid var(--line); font-size:.84rem; color:var(--ink-soft);}
+  .progress li b{display:block; font-family:'IBM Plex Mono', monospace; font-size:.72rem; color:var(--ink-soft); font-weight:600;}
+  .progress li.done{border-left-color:var(--navy); color:var(--navy-deep);}
+  .progress li[aria-current="step"]{border-left-color:var(--alarm); color:var(--navy-deep); font-weight:600;}
+  .progress li[aria-current="step"] b{color:var(--alarm-deep);}
+  @media (max-width:560px){ .progress{grid-template-columns:1fr 1fr;} }
+  .wiz fieldset{border:none; margin:0; padding:0;}
+  .wiz legend{font-family:'Zilla Slab', serif; font-size:1.35rem; font-weight:600; color:var(--navy-deep); padding:0;}
+  .wiz .intro{margin-top:8px; font-size:.94rem;}
+  .wiz-actions{display:flex; gap:12px; margin-top:26px; flex-wrap:wrap;}
+  .file-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:560px){ .file-row{grid-template-columns:1fr;} }
+  .field input[type=file]{padding:9px; background:var(--paper);}
+  .review{margin:18px 0 0; display:grid; grid-template-columns:auto 1fr; gap:10px 20px; font-size:.92rem;}
+  .review dt{color:var(--ink-soft);}
+  .review dd{margin:0; color:var(--ink); font-weight:500;}
+
+  .need h3{font-size:1.1rem;}
+  .need ul{list-style:none; margin:14px 0 0; padding:0; display:flex; flex-direction:column; gap:12px;}
+  .need li{font-size:.9rem; color:var(--ink); padding-left:14px; border-left:2px solid var(--line); line-height:1.45;}
+  .need li span{display:block; font-size:.8rem; color:var(--ink-soft); margin-top:2px;}
+
+  .check{
+    margin-top:22px; border-radius:6px; padding:24px 26px 22px; color:#1E2C26; position:relative;
+    background:
+      repeating-linear-gradient(135deg, rgba(46,125,70,.05) 0 2px, transparent 2px 9px),
+      #E7F0EA;
+    border:1px solid #B9CFC0;
+    font-family:'IBM Plex Sans', sans-serif;
+  }
+  .check-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px;}
+  .check-bank{font-family:'Zilla Slab', serif; font-weight:700; font-size:1.05rem; color:var(--navy-deep);}
+  .check-bank small{display:block; font-family:'IBM Plex Sans', sans-serif; font-weight:500; font-size:.7rem; color:#56685C;}
+  .check-no{font-family:'IBM Plex Mono', monospace; font-size:.8rem; text-align:right;}
+  .check-pay{display:flex; align-items:flex-end; gap:14px; margin-top:26px;}
+  .check-pay .lab{font-size:.68rem; color:#56685C; flex:none; line-height:1.2; padding-bottom:3px;}
+  .check-pay .payee{flex:1; border-bottom:1px solid #7E9486; font-family:'Caveat', cursive; font-size:1.6rem; line-height:1.1; padding:0 4px;}
+  .check-pay .amt{flex:none; border:1px solid #7E9486; padding:4px 10px; font-family:'IBM Plex Mono', monospace; font-weight:600; background:#F4F8F5;}
+  .check-words{margin-top:14px; border-bottom:1px solid #7E9486; font-family:'Caveat', cursive; font-size:1.45rem; padding:0 4px;}
+  .check-bottom{display:flex; justify-content:space-between; gap:20px; margin-top:22px; align-items:flex-end;}
+  .check-memo{font-size:.7rem; color:#56685C; flex:1;}
+  .check-memo span{font-family:'Caveat', cursive; font-size:1.3rem; color:#1E2C26; border-bottom:1px solid #7E9486; display:block; padding:0 4px;}
+  .check-sig{flex:1; text-align:center; font-size:.7rem; color:#56685C;}
+  .check-sig span{display:block; font-family:'Caveat', cursive; font-size:1.6rem; color:var(--navy); border-bottom:1px solid #7E9486;}
+  .micr{margin-top:16px; font-family:'IBM Plex Mono', monospace; font-size:.8rem; letter-spacing:.14em; color:#56685C;}
+
+  .lookup{display:grid; grid-template-columns:1fr auto; gap:12px; align-items:end;}
+  .lookup .field{margin-top:0;}
+  @media (max-width:560px){ .lookup{grid-template-columns:1fr;} }
+
 </style>
 </head>
 <body>
@@ -326,7 +382,7 @@
     <nav id="siteNav">
       <a href="index.html#coverage">Coverage</a>
       <a href="monitor.html">Risk Monitor</a>
-      <a href="claims.html">Claims</a>
+      <a href="claims.html" aria-current="page">Claims</a>
       <a href="newsroom.html">Newsroom</a>
       <a href="about.html">About</a>
       <a href="careers.html">Careers</a>
@@ -335,318 +391,214 @@
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow-line"><span class="dot"></span> UNDERWRITING ACTIVE IN W. PENNSYLVANIA, FLAT OHIO &amp; LAS VEGAS</div>
-      <h1>Western PA has never had a volcano.<br>Neither has flat Ohio.<br><em>We insure both anyway.</em></h1>
-      <p class="lede">Insurance Mutual covers Western Pennsylvania, the flat parts of Ohio, and Las Vegas, Nevada, against volcanic peril —
-         a specific and deliberately chosen service map. We do not currently write policies in New Jersey or Indiana, on principle.</p>
-      <div class="hero-ctas">
-        <a href="#quote" class="btn btn-primary">Get Your Free Risk Assessment</a>
-        <a href="#coverage" class="btn btn-ghost">View Coverage Tiers</a>
-      </div>
-    </div>
 
-    <div class="gauge-card">
-      <div class="gauge-head">
-        <span class="gauge-title">Territory Volcanic Risk Index</span>
-        <span class="gauge-live">● LIVE</span>
-      </div>
-      <div class="gauge-wrap">
-        <svg width="220" height="130" viewBox="0 0 220 130">
-          <path d="M20 110 A90 90 0 0 1 200 110" stroke="#2A3653" stroke-width="14" fill="none" stroke-linecap="round"/>
-          <path d="M20 110 A90 90 0 0 1 56 34" stroke="#6FCF7E" stroke-width="14" fill="none" stroke-linecap="round"/>
-          <g id="needle" style="transform-origin:110px 110px; transform:rotate(-88deg); transition:transform 1.4s cubic-bezier(.2,.8,.2,1);">
-            <line x1="110" y1="110" x2="110" y2="38" stroke="#EAEFF3" stroke-width="3"/>
-            <circle cx="110" cy="110" r="6" fill="#B8923A"/>
-          </g>
-        </svg>
-      </div>
-      <div class="gauge-reading">
-        <div class="level">NEGLIGIBLE</div>
-        <div class="sub">but for how long, really</div>
-      </div>
-      <div class="gauge-stats">
-        <div class="gstat"><b id="daysCounter">4,317,205</b><span>days since our last territory eruption</span></div>
-        <div class="gstat"><b>0</b><span>volcanoes currently in territory</span></div>
-        <div class="gstat"><b>143</b><span>volcanoes that could theoretically form</span></div>
-        <div class="gstat"><b class="mono">101%</b><span>our confidence in that number</span></div>
-      </div>
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow-line"><span class="dot"></span> CLAIMS DESK OPEN · ADJUSTER ON STANDBY</div>
+    <h1>File a claim. We've been ready since the charter.</h1>
+    <p class="lede">If a volcano has formed on or near your property within covered territory, you are in the right place,
+      and frankly we are thrilled for you. Filing takes about four minutes. Payout is $5.00, always.</p>
+    <div class="hero-stats">
+      <div><b>0</b><span>claims filed to date</span></div>
+      <div><b>0</b><span>claims denied to date</span></div>
+      <div><b>$5.00</b><span>maximum payout, any tier</span></div>
+      <div><b>5–7</b><span>business days, geology permitting</span></div>
     </div>
   </div>
 </section>
 
-<section id="territory" style="background:var(--paper-card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+<section id="file">
   <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">OFFICIAL POLICY DOCUMENT</div>
-      <h2>Coverage territory &amp; total insured value</h2>
-      <p>Per our founding charter, filed in pencil and never notarized, the following is the complete and binding service area.</p>
-    </div>
+    <div class="claim-grid">
+      <div class="panel wiz">
+        <ol class="progress" id="progress">
+          <li><b>STEP 01</b>Confirm eruption</li>
+          <li><b>STEP 02</b>Location</li>
+          <li><b>STEP 03</b>Document the loss</li>
+          <li><b>STEP 04</b>Review &amp; submit</li>
+        </ol>
 
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;" class="territory-grid">
-      <div style="background:var(--paper); border:1px solid var(--line); border-radius:6px; padding:26px;">
-        <h3 style="font-size:1.05rem; color:var(--navy-deep); margin-bottom:14px;">Where you're covered</h3>
-        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;">
-          <li style="display:flex; gap:10px; font-size:.94rem; color:var(--ink);"><span style="color:#2E7D46; font-weight:700;">✓</span> Western Pennsylvania</li>
-          <li style="display:flex; gap:10px; font-size:.94rem; color:var(--ink);"><span style="color:#2E7D46; font-weight:700;">✓</span> 
-            The flat parts of Ohio <span class="mono" style="font-size:.76rem; color:var(--ink-soft);">(boundary determined case-by-case)</span></li>
-          <li style="display:flex; gap:10px; font-size:.94rem; color:var(--ink);"><span style="color:#2E7D46; font-weight:700;">✓</span> Las Vegas, Nevada</li>
-        </ul>
-        <hr style="border:none; border-top:1px solid var(--line); margin:18px 0;">
-        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;">
-          <li style="display:flex; gap:10px; font-size:.94rem; color:var(--ink-soft);"><span style="color:var(--alarm); font-weight:700;">✕</span> Nowhere in New Jersey</li>
-          <li style="display:flex; gap:10px; font-size:.94rem; color:var(--ink-soft);"><span style="color:var(--alarm); font-weight:700;">✕</span> Nowhere in Indiana</li>
-        </ul>
+        <!-- step 1 -->
+        <fieldset data-step="0">
+          <legend>Is there lava?</legend>
+          <p class="intro">Look outside. Take your time. This is the most important question on the form.</p>
+          <div class="field">
+            <label class="choice"><input type="radio" name="lava" value="yes"> Yes, there is lava</label>
+            <label class="choice"><input type="radio" name="lava" value="unsure"> I'm not sure</label>
+            <label class="choice"><input type="radio" name="lava" value="no"> No</label>
+          </div>
+          <div id="m0" class="msg" hidden></div>
+          <div class="wiz-actions"><button class="btn btn-primary" data-next>Continue</button></div>
+        </fieldset>
+
+        <!-- step 2 -->
+        <fieldset data-step="1" hidden>
+          <legend>Where is the volcano?</legend>
+          <p class="intro">Claims are accepted from covered territory only. You can check the map on the <a href="monitor.html">Risk Monitor</a>.</p>
+          <div class="field">
+            <label for="county">County or city</label>
+            <select id="county">
+              <option value="">Choose a location</option>
+              <option>Franklin County, OH</option>
+              <option>Cuyahoga County, OH</option>
+              <option>Licking County, OH</option>
+              <option value="hilly">Ohio, but a hilly part</option>
+              <option>Allegheny County, PA</option>
+              <option>Greene County, PA</option>
+              <option value="east">Eastern Pennsylvania</option>
+              <option>Las Vegas, NV</option>
+              <option value="nj">New Jersey (any county)</option>
+              <option value="in">Indiana (any county)</option>
+              <option value="tx">Texas</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="dist">Distance from the lava to your property</label>
+            <input id="dist" type="text" placeholder="e.g. 40 feet, or 'it is in the kitchen'">
+            <div class="hint">Estimates are fine. Please do not walk over to measure.</div>
+          </div>
+          <div id="m1" class="msg" hidden></div>
+          <div class="wiz-actions">
+            <button class="btn btn-primary" data-next>Continue</button>
+            <button class="btn btn-outline" data-back>Back</button>
+          </div>
+        </fieldset>
+
+        <!-- step 3 -->
+        <fieldset data-step="2" hidden>
+          <legend>Document the loss</legend>
+          <p class="intro">Photograph the volcano, the affected property, and, if time allows, yourself looking vindicated.</p>
+          <div class="field">
+            <label for="name">Policyholder name</label>
+            <input id="name" type="text" autocomplete="name" placeholder="As it should appear on the check">
+          </div>
+          <div class="field">
+            <label for="tier">Coverage tier</label>
+            <select id="tier">
+              <option>Skinny BodyBuilder — Basic</option>
+              <option selected>Shaved Goat — Premium</option>
+              <option>Genghis Khan — Platinum</option>
+            </select>
+            <div class="hint">Your tier affects the service you receive, not the amount.</div>
+          </div>
+          <div class="file-row">
+            <div class="field">
+              <label for="p1">Photo of the volcano</label>
+              <input id="p1" type="file" accept="image/*">
+            </div>
+            <div class="field">
+              <label for="p2">Photo of the property</label>
+              <input id="p2" type="file" accept="image/*">
+            </div>
+          </div>
+          <div class="field">
+            <label class="choice"><input type="checkbox" id="vind"> I have also photographed myself looking vindicated</label>
+          </div>
+          <div class="field">
+            <label for="desc">Describe what happened</label>
+            <textarea id="desc" placeholder="Start from the moment you first suspected the ground."></textarea>
+          </div>
+          <div id="m2" class="msg" hidden></div>
+          <div class="wiz-actions">
+            <button class="btn btn-primary" data-next>Review claim</button>
+            <button class="btn btn-outline" data-back>Back</button>
+          </div>
+        </fieldset>
+
+        <!-- step 4 -->
+        <fieldset data-step="3" hidden>
+          <legend>Review &amp; submit</legend>
+          <p class="intro">Check your details. Once submitted, your claim becomes the first in company history.</p>
+          <dl class="review" id="review"></dl>
+          <div class="wiz-actions" id="submitRow">
+            <button class="btn btn-primary" id="submitBtn">Submit claim</button>
+            <button class="btn btn-outline" data-back>Back</button>
+          </div>
+          <div id="done" hidden>
+            <div class="msg msg-ok">Claim IM-2026-000001 approved. Your check is below and will also be mailed, by a carrier we trust to drive near lava.</div>
+            <div class="check" role="img" aria-label="Check for five dollars">
+              <div class="check-top">
+                <div class="check-bank">Insurance Mutual<small>Claims Disbursement Account · Western PA</small></div>
+                <div class="check-no">No. 000001<br><span id="chkDate"></span></div>
+              </div>
+              <div class="check-pay">
+                <div class="lab">PAY TO THE<br>ORDER OF</div>
+                <div class="payee" id="chkName"></div>
+                <div class="amt">$5.00</div>
+              </div>
+              <div class="check-words">Five and 00/100 —————————— dollars</div>
+              <div class="check-bottom">
+                <div class="check-memo">MEMO<span>volcano (confirmed)</span></div>
+                <div class="check-sig"><span>B. Stroud</span>Head of Claims</div>
+              </div>
+              <div class="micr">⑆000000005⑆ 000001 ⑈</div>
+            </div>
+            <div class="wiz-actions"><button class="btn btn-outline" id="againBtn">Start a new claim</button></div>
+          </div>
+        </fieldset>
       </div>
 
-      <div style="background:var(--navy-deep); border-radius:6px; padding:26px; color:#DCE3EF;">
-        <h3 style="font-size:1.05rem; color:#fff; margin-bottom:6px;">Total insured value</h3>
-        <p style="color:#9AA6C0; font-size:.86rem;">As calculated by our proprietary actuarial formula:</p>
-        <div class="mono" style="background:#0F1729; border:1px solid #2A3653; border-radius:4px; padding:16px; margin-top:14px; font-size:1rem; color:#B7C2DC; text-align:center; line-height:1.9;">
-          5 + (sin²θ + cos²θ − 1) · (ln(e) − 1) · <span style="display:inline-block; text-align:center; vertical-align:middle;"><span style="display:block; border-bottom:1px solid #B7C2DC; padding:0 2px;">999</span><span style="display:block;">999</span></span>
-        </div>
-        <div style="text-align:center; margin-top:18px;">
-          <a class="btn btn-primary" id="revealPayout" style="width:100%; justify-content:center;">Solve for my payout</a>
-        </div>
-        <div id="payoutResult" style="text-align:center; margin-top:16px; display:none;">
-          <div style="font-family:'Zilla Slab', serif; font-size:2.4rem; color:var(--brass); font-weight:700;">$5.00</div>
-          <div style="font-size:.78rem; color:#8E9BB8; margin-top:4px;">maximum lifetime payout, all tiers, verified twice</div>
-        </div>
-      </div>
-    </div>
-    <p style="font-size:.76rem; color:var(--ink-soft); margin-top:16px; max-width:70ch;">Note: since sin²θ + cos²θ always equals 1 and ln(e) always equals 1, 
-      both bracketed terms resolve to zero regardless of θ, leaving a total insured value of exactly $5.00 in all cases. 
-      We consider this a feature, not an oversight.</p>
-  </div>
-</section>
-
-<section id="coverage">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">COVERAGE TIERS</div>
-      <h2>Three ways to sleep soundly tonight</h2>
-      <p>Every policy is fully underwritten against an event that has not occurred anywhere in our covered territory's recorded geological history,
-         and — per our actuaries — is not expected to. All tiers share the same $5.00 total insured value; higher tiers add service, not payout.</p>
-    </div>
-
-    <div class="plans">
-      <div class="plan">
-        <div class="plan-name">Skinny BodyBuilder — Basic</div>
-        <div class="plan-tag">For the cautiously unbothered</div>
-        <div class="plan-price"><span class="num">$14</span><span class="per">/ month</span></div>
-        <hr>
+      <aside class="panel need">
+        <h3>What you'll need</h3>
         <ul>
-          <li>✓ Ashfall cleanup, up to $2,000</li>
-          <li>✓ Emergency air-filter replacement</li>
-          <li>✓ 24/7 seismic hotline (unstaffed after 6pm)</li>
-          <li>✓ One (1) commemorative lapel pin</li>
+          <li>An active volcano<span>Within covered territory. Dormant ones don't count, which is all of them.</span></li>
+          <li>Two photographs<span>Volcano and property. A third, of you, is recommended.</span></li>
+          <li>Your coverage tier<span>Printed on your lapel pin packaging.</span></li>
+          <li>About four minutes<span>Longer if the lava is between you and the computer.</span></li>
         </ul>
-        <a href="#quote" class="btn btn-ghost" style="color:var(--navy-deep); border-color:var(--line);">Select Basic</a>
-      </div>
-
-      <div class="plan featured">
-        <div class="plan-badge">MOST CHOSEN</div>
-        <div class="plan-name">Shaved Goat — Premium</div>
-        <div class="plan-tag">For the reasonably prepared</div>
-        <div class="plan-price"><span class="num">$29</span><span class="per">/ month</span></div>
-        <hr>
-        <ul>
-          <li>✓ Everything in Basic</li>
-          <li>✓ Full dwelling replacement, lava-related</li>
-          <li>✓ Livestock and lawn-gnome relocation</li>
-          <li>✓ Priority evacuation routing (theoretical)</li>
-          <li>✓ Two (2) commemorative lapel pins</li>
-        </ul>
-        <a href="#quote" class="btn btn-primary">Select Premium</a>
-      </div>
-
-      <div class="plan">
-        <div class="plan-name">Genghis Khan — Platinum</div>
-        <div class="plan-tag">For the professionally paranoid</div>
-        <div class="plan-price"><span class="num">$61</span><span class="per">/ month</span></div>
-        <hr>
-        <ul>
-          <li>✓ Everything in Premium</li>
-          <li>✓ New-caldera legal defense fund</li>
-          <li>✓ Concierge magma-flow rerouting consult</li>
-          <li>✓ Complimentary annual seismograph tune-up</li>
-          <li>✓ Framed certificate of preparedness</li>
-        </ul>
-        <a href="#quote" class="btn btn-ghost" style="color:var(--navy-deep); border-color:var(--line);">Select Platinum</a>
-      </div>
+        <p class="note">Prefer the phone? The seismic hotline is staffed until 6pm. After that it rings, which is also a kind of comfort.</p>
+      </aside>
     </div>
   </div>
 </section>
 
-<section id="monitor" class="monitor">
+<section id="status" style="background:var(--paper-card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-kicker">GEOLOGIC SURVEILLANCE</div>
-      <h2>Territory Volcanic Activity Monitor</h2>
-      <p>Our in-house Department of Magmatic Affairs watches the ground beneath Western PA, flat Ohio, and Las Vegas so you don't have to. 
-        Updated continuously, in the sense that nothing ever changes.</p>
+      <div class="section-kicker">EXISTING CLAIMS</div>
+      <h2>Check a claim's status</h2>
+      <p>Enter the claim number from your confirmation.</p>
     </div>
-    <div class="tickerbox">
-      <div class="line"><b>[STATUS]</b> Mount Nothingness (Franklin County, OH) — dormant, as ever</div>
-      <div class="line"><b>[STATUS]</b> Allegheny Plateau (Western PA) — geologically uneventful, as contracted</div>
-      <div class="line"><b>[STATUS]</b> Las Vegas Strip — no seismic activity beyond foot traffic</div>
-      <div class="line flag"><b>[ADVISORY]</b> Soil composition in Licking County, OH "remains soil"</div>
-      <div class="line"><b>[STATUS]</b> Lake Erie — still a lake</div>
-      <div class="line flag"><b>[ADVISORY]</b> New Jersey and Indiana — status not monitored; not our territory, not our problem</div>
-      <div class="line"><b>[STATUS]</b> Territory-wide magma chamber count — unchanged at zero</div>
-      <div class="line flag"><b>[ADVISORY]</b> Analysts describe risk trend as "flat, and getting flatter"</div>
-      <div class="line"><b>[STATUS]</b> Next scheduled review — whenever we remember to</div>
+    <div style="max-width:620px;">
+      <div class="lookup">
+        <div class="field">
+          <label for="claimNo">Claim number</label>
+          <input id="claimNo" type="text" placeholder="IM-2026-000000" autocomplete="off">
+        </div>
+        <button class="btn btn-primary" id="lookupBtn">Check status</button>
+      </div>
+      <div id="lookupMsg" class="msg" hidden></div>
     </div>
   </div>
 </section>
 
-<section id="testimonials">
+<section id="claims-faq">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-kicker">POLICYHOLDERS</div>
-      <h2>Policyholders sleeping better already</h2>
-    </div>
-    <div class="testis">
-      <div class="testi">
-        <div class="stars">★★★★★</div>
-        <p>"I don't know when Ohio's volcano is coming. Nobody does. That's what scares me, and that's why I'm covered."</p>
-        <div class="who"><b>Josh Smith</b> — Policyholder, Mansfield, OH</div>
-      </div>
-      <div class="testi">
-        <div class="stars">★★★★★</div>
-        <p>"When did I sign up for this?"</p>
-        <div class="who"><b>Even Como</b> — Policyholder, Pittsburgh, PA</div>
-      </div>
-      <div class="testi">
-        <div class="stars">★★★★★</div>
-        <p>"I asked why Vegas is covered and nowhere in Indiana is. Nobody could explain it. I signed anyway."</p>
-        <div class="who"><b>Dane Jones</b> — Policyholder, Las Vegas, NV</div>
-      </div>
-       <div class="testi">
-        <div class="stars">★★★★★</div>
-        <p>"I wanted to sign up for this insurance since I am deathly afraid of volcanoes. However, they said they don't cover Indiana. I completely understand."</p>
-        <div class="who"><b>Ella Mecea</b> — Policyholder, Indianapolis, IN</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="claims">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">CLAIMS PROCESS</div>
-      <h2>If the unthinkable finally thinks itself</h2>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="stepno">STEP 01</div>
-        <h3>Confirm eruption</h3>
-        <p>Check for lava. If lava is present, proceed to Step 02. If uncertain, it is probably not lava.</p>
-      </div>
-      <div class="step">
-        <div class="stepno">STEP 02</div>
-        <h3>Call the hotline</h3>
-        <p>Reach our claims line at your earliest convenience, ideally before the phone lines melt.</p>
-      </div>
-      <div class="step">
-        <div class="stepno">STEP 03</div>
-        <h3>Document the loss</h3>
-        <p>Photograph the affected volcano, the affected property, and, if time allows, yourself looking vindicated.</p>
-      </div>
-      <div class="step">
-        <div class="stepno">STEP 04</div>
-        <h3>Receive payout</h3>
-        <p>Funds are disbursed within 5–7 business days, geology permitting.</p>
-      </div>
-    </div>
-    <div class="hero-ctas"><a href="claims.html" class="btn btn-primary">File a claim</a><a href="monitor.html" class="btn btn-outline">Check the Risk Monitor</a></div>
-  </div>
-</section>
-
-<section id="faq" style="background:var(--paper-card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">QUESTIONS, ANSWERED HONESTLY</div>
-      <h2>Frequently Asked Questions</h2>
+      <div class="section-kicker">CLAIMS QUESTIONS</div>
+      <h2>Before you file</h2>
     </div>
     <div style="max-width:760px;">
       <details class="faq-item">
-        <summary>Do any of your covered areas actually have volcanoes?</summary>
-        <p class="faq-a">No. Western Pennsylvania, flat Ohio, and Las Vegas have no volcanoes, no volcanic history, and no geological mechanism by which one could plausibly form. We consider this a temporary condition, territory-wide.</p>
+        <summary>Does a higher tier get a bigger payout?</summary>
+        <p class="faq-a">No. Every tier pays $5.00. Platinum policyholders receive their $5.00 in a nicer envelope and a phone call from someone who sounds sincerely sorry about the volcano.</p>
       </details>
       <details class="faq-item">
-        <summary>Why these three places specifically?</summary>
-        <p class="faq-a">That information is not available at this time. The founding charter simply lists them, in that order, with New Jersey and Indiana crossed out beneath.</p>
+        <summary>What if the volcano is in the hilly part of Ohio?</summary>
+        <p class="faq-a">The boundary is determined case-by-case. In this case, it has been determined. You are outside it.</p>
       </details>
       <details class="faq-item">
-        <summary>So why do I need this insurance?</summary>
-        <p class="faq-a">Because "it's never happened" is not the same as "it can't happen," and we would rather you hear that from us than from a geologist standing in your yard.</p>
+        <summary>Can I file a claim for a very hot day in Las Vegas?</summary>
+        <p class="faq-a">No. That is July. Our Las Vegas staff have been trained extensively on the difference.</p>
       </details>
       <details class="faq-item">
-        <summary>Has Insurance Mutual ever paid out a claim?</summary>
-        <p class="faq-a">Not yet. We remain fully prepared to, and frankly a little eager.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Is this covered under my regular homeowner's policy?</summary>
-        <p class="faq-a">Almost certainly not, on account of nobody else selling this.</p>
-      </details>
-      <details class="faq-item">
-        <summary>What about New Jersey or Indiana?</summary>
-        <p class="faq-a">Not eligible. This is not a data gap — it is a decision, made once, and never revisited. No Regrets.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I cancel anytime?</summary>
-        <p class="faq-a">Yes, though we'll ask you to reconsider, gently, and only once.</p>
+        <summary>What if a hot dog was involved?</summary>
+        <p class="faq-a">Claims involving hot dogs, as cause, casualty, or garnish, go to the adjuster on duty, who will decide based on factors we are not able to share.</p>
       </details>
     </div>
   </div>
 </section>
 
-<section id="quote">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">GET COVERED</div>
-      <h2>See your personalized premium</h2>
-    </div>
-    <div class="calc">
-      <div>
-        <h3>Free Risk Assessment</h3>
-        <p>Answer two questions. Our underwriting model does the rest. Results are indicative and, statistically, extremely favorable.</p>
-        <div class="field">
-          <label for="county">Location</label>
-          <select id="county">
-            <option>Franklin County, OH</option>
-            <option>Cuyahoga County, OH</option>
-            <option>Licking County, OH</option>
-            <option>Allegheny County, PA</option>
-            <option>Greene County, PA</option>
-            <option>Las Vegas, NV</option>
-            <option>New Jersey (any county)</option>
-            <option>Indiana (any county)</option>
-            <option>Other / Unsure</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="proximity">Distance from nearest volcano</label>
-          <select id="proximity">
-            <option>Unknown</option>
-            <option>Very far, presumably</option>
-            <option>I have not checked</option>
-            <option>I would rather not think about it</option>
-          </select>
-        </div>
-        <a class="btn btn-primary" id="calcBtn">Calculate My Premium</a>
-      </div>
-      <div class="quote-result">
-        <div class="amt" id="quoteAmt">$29<span style="font-size:1.1rem; color:var(--ink-soft); font-weight:500;">/mo</span></div>
-        <div class="amt-sub">Estimated Premium Plan, based on your inputs</div>
-        <div class="risklabel" id="quoteRisk">RISK LEVEL: NEGLIGIBLE</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="wrap">
@@ -689,52 +641,6 @@
 </footer>
 
 <script>
-  // days-since counter, ticking up like a "live" stat
-  (function(){
-    const el = document.getElementById('daysCounter');
-    let base = 4317205;
-    setInterval(() => {
-      // extremely rarely "increments" to feel alive without being distracting
-    }, 4000);
-  })();
-
-  // gauge needle settle animation on load
-  window.addEventListener('load', () => {
-    const needle = document.getElementById('needle');
-    setTimeout(() => { needle.style.transform = 'rotate(-84deg)'; }, 300);
-  });
-
-  // "solve" the insured-value formula — always resolves to $5.00, dramatically
-  document.getElementById('revealPayout').addEventListener('click', () => {
-    const result = document.getElementById('payoutResult');
-    result.style.display = result.style.display === 'none' ? 'block' : 'none';
-  });
-
-  // goofy "calculator" — premiums vary, but payout is fixed at the real $5.00
-  document.getElementById('calcBtn').addEventListener('click', () => {
-    const county = document.getElementById('county').value;
-    const prox = document.getElementById('proximity').value;
-    const amtEl = document.getElementById('quoteAmt');
-    const riskEl = document.getElementById('quoteRisk');
-
-    if (county === 'New Jersey (any county)' || county === 'Indiana (any county)') {
-      amtEl.innerHTML = 'We don\'t like you';
-      riskEl.textContent = 'NOT ELIGIBLE IN THIS TERRITORY';
-      return;
-    }
-
-    let base = 29;
-    if (prox === 'I would rather not think about it') base += 18;
-    if (prox === 'I have not checked') base += 9;
-    if (county === 'Licking County, OH') base += 4; // no reason given
-
-    amtEl.innerHTML = '$' + base + '<span style="font-size:1.1rem; color:var(--ink-soft); font-weight:500;">/mo</span>';
-    riskEl.textContent = 'MAX PAYOUT: $5.00, ALWAYS';
-  });
-</script>
-
-
-<script>
   (function(){
     const b = document.getElementById('menuBtn'), n = document.getElementById('siteNav');
     if(!b) return;
@@ -745,5 +651,98 @@
     });
   })();
 </script>
+<script>
+
+  const sets = [...document.querySelectorAll('.wiz fieldset')];
+  const prog = [...document.querySelectorAll('#progress li')];
+  let cur = 0;
+  function show(i){
+    cur = i;
+    sets.forEach((s, k) => s.hidden = k !== i);
+    prog.forEach((p, k) => {
+      p.classList.toggle('done', k < i);
+      if(k === i) p.setAttribute('aria-current', 'step'); else p.removeAttribute('aria-current');
+    });
+    sets[i].querySelector('legend').scrollIntoView({block:'nearest'});
+  }
+  function msg(id, cls, text){
+    const m = document.getElementById(id);
+    if(!text){ m.hidden = true; return; }
+    m.className = 'msg ' + cls; m.textContent = text; m.hidden = false;
+  }
+  const checks = [
+    () => {
+      const v = (document.querySelector('input[name=lava]:checked') || {}).value;
+      if(!v){ msg('m0','msg-warn','Choose an answer to continue.'); return false; }
+      if(v === 'unsure'){ msg('m0','msg-warn','If uncertain, it is probably not lava. Your claim is paused until you are certain.'); return false; }
+      if(v === 'no'){
+        const day = new Date().toLocaleDateString('en-US', {weekday:'long'});
+        msg('m0','msg-bad',`Then this is not a claim. It is a ${day}. No action is needed.`); return false;
+      }
+      msg('m0'); return true;
+    },
+    () => {
+      const v = document.getElementById('county').value;
+      const bad = {
+        '':   ['msg-warn','Choose a location to continue.'],
+        nj:   ['msg-bad','We don\'t like you. Claims from New Jersey are not accepted, now or later.'],
+        in:   ['msg-bad','We don\'t like you. Claims from Indiana are not accepted, now or later.'],
+        hilly:['msg-bad','That is outside flat Ohio. The boundary is determined case-by-case, and this case is determined.'],
+        east: ['msg-bad','Eastern Pennsylvania is not covered. It is not excluded either. It is just not.'],
+        tx:   ['msg-bad','Policies are void in Texas, for reasons that predate current management.']
+      };
+      if(bad[v]){ msg('m1', bad[v][0], bad[v][1]); return false; }
+      msg('m1'); return true;
+    },
+    () => {
+      if(!document.getElementById('name').value.trim()){ msg('m2','msg-warn','Enter your name so we can write it on the check.'); return false; }
+      msg('m2'); buildReview(); return true;
+    }
+  ];
+  function buildReview(){
+    const f = id => document.getElementById(id);
+    const photo = el => el.files && el.files[0] ? el.files[0].name : 'Not attached';
+    const rows = {
+      'Lava present':'Yes',
+      'Location': f('county').value,
+      'Distance': f('dist').value.trim() || 'Not given',
+      'Policyholder': f('name').value.trim(),
+      'Tier': f('tier').value,
+      'Volcano photo': photo(f('p1')),
+      'Property photo': photo(f('p2')),
+      'Looking vindicated': f('vind').checked ? 'Photographed' : 'Not photographed',
+      'Payout': '$5.00'
+    };
+    document.getElementById('review').innerHTML = Object.entries(rows)
+      .map(([k,v]) => `<dt>${k}</dt><dd>${String(v).replace(/</g,'&lt;')}</dd>`).join('');
+  }
+  document.querySelectorAll('[data-next]').forEach(b => b.addEventListener('click', () => { if(checks[cur]()) show(cur + 1); }));
+  document.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', () => show(cur - 1)));
+
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    document.getElementById('submitRow').hidden = true;
+    document.getElementById('chkName').textContent = document.getElementById('name').value.trim();
+    document.getElementById('chkDate').textContent = new Date().toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+    document.getElementById('done').hidden = false;
+    prog[3].classList.add('done');
+  });
+  document.getElementById('againBtn').addEventListener('click', () => {
+    document.querySelectorAll('.wiz input, .wiz textarea').forEach(i => { if(i.type === 'radio' || i.type === 'checkbox') i.checked = false; else i.value = ''; });
+    document.getElementById('county').value = '';
+    document.getElementById('done').hidden = true;
+    document.getElementById('submitRow').hidden = false;
+    show(0);
+  });
+
+  document.getElementById('lookupBtn').addEventListener('click', () => {
+    const v = document.getElementById('claimNo').value.trim().toUpperCase();
+    if(!v) return msg('lookupMsg','msg-warn','Enter a claim number to check its status.');
+    if(v === 'IM-2026-000001') return msg('lookupMsg','msg-ok','Approved. $5.00 check issued. It may arrive warm.');
+    msg('lookupMsg','msg-warn',`No claim found under ${v}. This is statistically expected, since nobody has ever filed one.`);
+  });
+  document.getElementById('claimNo').addEventListener('keydown', e => { if(e.key === 'Enter') document.getElementById('lookupBtn').click(); });
+
+</script>
+
 </body>
 </html>

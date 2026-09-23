@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Insurance Mutual — Volcano Insurance for Western PA, Ohio, Vegas & More</title>
+<title>Newsroom — Insurance Mutual</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -305,6 +305,44 @@
   .filter[aria-pressed="true"]{background:var(--navy); border-color:var(--navy); color:#fff;}
   .note{font-size:.76rem; color:var(--ink-soft); margin-top:14px; max-width:70ch;}
   [hidden]{display:none !important;}
+
+  /* ---------- page ---------- */
+
+  .feature{background:var(--navy-deep); border-radius:6px; padding:34px; color:#DCE3EF; display:grid; grid-template-columns:1fr 240px; gap:34px;}
+  @media (max-width:820px){ .feature{grid-template-columns:1fr; padding:26px;} }
+  .feature .issue{font-family:'IBM Plex Mono', monospace; font-size:.78rem; color:var(--brass); font-weight:600;}
+  .feature h2{color:#fff; font-size:clamp(1.6rem, 3vw, 2.2rem); margin-top:10px; max-width:22ch;}
+  .feature .dek{color:#A9B3C9; margin-top:14px; max-width:58ch; font-size:1.02rem;}
+  .feature details{margin-top:22px;}
+  .feature summary{list-style:none; cursor:pointer; display:inline-flex;}
+  .feature summary::-webkit-details-marker{display:none;}
+  .feature details[open] summary .btn::after{content:''; }
+  .feature .article{margin-top:22px; padding-top:22px; border-top:1px solid #2A3653; max-width:64ch;}
+  .feature .article p{color:#C4CEDE; font-family:'Zilla Slab', serif; font-size:1.1rem; line-height:1.65; margin-top:14px;}
+  .feature .article p:first-child{margin-top:0;}
+  .feature .article p.sig{font-family:'IBM Plex Sans', sans-serif; font-size:.86rem; color:#8E9BB8;}
+  .toc{border-left:1px solid #2A3653; padding-left:24px;}
+  @media (max-width:820px){ .toc{border-left:none; padding-left:0; border-top:1px solid #2A3653; padding-top:20px;} }
+  .toc h3{font-size:.95rem; color:#fff;}
+  .toc ol{margin:12px 0 0; padding-left:18px; color:#A9B3C9; font-size:.88rem; line-height:1.5; display:flex; flex-direction:column; gap:8px;}
+
+  .news-grid{display:grid; grid-template-columns:1fr 320px; gap:36px; align-items:start;}
+  @media (max-width:900px){ .news-grid{grid-template-columns:1fr;} }
+  .release{display:grid; grid-template-columns:110px 1fr; gap:20px; padding:20px 0; border-bottom:1px solid var(--line);}
+  .release:first-child{border-top:1px solid var(--line);}
+  @media (max-width:560px){ .release{grid-template-columns:1fr; gap:8px;} }
+  .release time{font-family:'IBM Plex Mono', monospace; font-size:.8rem; color:var(--ink-soft); padding-top:4px;}
+  .release h3{font-size:1.12rem; margin-top:8px; line-height:1.2;}
+  .release p{font-size:.92rem; margin-top:6px;}
+  .empty{padding:30px 0; color:var(--ink-soft);}
+
+  .signup h3{font-size:1.2rem;}
+  .signup p{font-size:.9rem; margin-top:8px;}
+  .signup .btn{width:100%; justify-content:center; margin-top:18px;}
+  .press{margin-top:20px;}
+  .press h3{font-size:1.05rem;}
+  .press p{font-size:.88rem; margin-top:8px;}
+
 </style>
 </head>
 <body>
@@ -327,7 +365,7 @@
       <a href="index.html#coverage">Coverage</a>
       <a href="monitor.html">Risk Monitor</a>
       <a href="claims.html">Claims</a>
-      <a href="newsroom.html">Newsroom</a>
+      <a href="newsroom.html" aria-current="page">Newsroom</a>
       <a href="about.html">About</a>
       <a href="careers.html">Careers</a>
       <a href="index.html#quote">Get a Quote</a>
@@ -335,318 +373,91 @@
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow-line"><span class="dot"></span> UNDERWRITING ACTIVE IN W. PENNSYLVANIA, FLAT OHIO &amp; LAS VEGAS</div>
-      <h1>Western PA has never had a volcano.<br>Neither has flat Ohio.<br><em>We insure both anyway.</em></h1>
-      <p class="lede">Insurance Mutual covers Western Pennsylvania, the flat parts of Ohio, and Las Vegas, Nevada, against volcanic peril —
-         a specific and deliberately chosen service map. We do not currently write policies in New Jersey or Indiana, on principle.</p>
-      <div class="hero-ctas">
-        <a href="#quote" class="btn btn-primary">Get Your Free Risk Assessment</a>
-        <a href="#coverage" class="btn btn-ghost">View Coverage Tiers</a>
-      </div>
-    </div>
 
-    <div class="gauge-card">
-      <div class="gauge-head">
-        <span class="gauge-title">Territory Volcanic Risk Index</span>
-        <span class="gauge-live">● LIVE</span>
-      </div>
-      <div class="gauge-wrap">
-        <svg width="220" height="130" viewBox="0 0 220 130">
-          <path d="M20 110 A90 90 0 0 1 200 110" stroke="#2A3653" stroke-width="14" fill="none" stroke-linecap="round"/>
-          <path d="M20 110 A90 90 0 0 1 56 34" stroke="#6FCF7E" stroke-width="14" fill="none" stroke-linecap="round"/>
-          <g id="needle" style="transform-origin:110px 110px; transform:rotate(-88deg); transition:transform 1.4s cubic-bezier(.2,.8,.2,1);">
-            <line x1="110" y1="110" x2="110" y2="38" stroke="#EAEFF3" stroke-width="3"/>
-            <circle cx="110" cy="110" r="6" fill="#B8923A"/>
-          </g>
-        </svg>
-      </div>
-      <div class="gauge-reading">
-        <div class="level">NEGLIGIBLE</div>
-        <div class="sub">but for how long, really</div>
-      </div>
-      <div class="gauge-stats">
-        <div class="gstat"><b id="daysCounter">4,317,205</b><span>days since our last territory eruption</span></div>
-        <div class="gstat"><b>0</b><span>volcanoes currently in territory</span></div>
-        <div class="gstat"><b>143</b><span>volcanoes that could theoretically form</span></div>
-        <div class="gstat"><b class="mono">101%</b><span>our confidence in that number</span></div>
-      </div>
-    </div>
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow-line"><span class="dot"></span> NEWSROOM · PRESS RELEASES · THE DORMANT DISPATCH</div>
+    <h1>News from a territory where nothing happens.</h1>
+    <p class="lede">Press releases, public advisories, official statements, and our monthly policyholder newsletter,
+      The Dormant Dispatch. We publish on schedule whether or not there is news. There is usually not.</p>
   </div>
 </section>
 
-<section id="territory" style="background:var(--paper-card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+<section id="dispatch">
   <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">OFFICIAL POLICY DOCUMENT</div>
-      <h2>Coverage territory &amp; total insured value</h2>
-      <p>Per our founding charter, filed in pencil and never notarized, the following is the complete and binding service area.</p>
-    </div>
-
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;" class="territory-grid">
-      <div style="background:var(--paper); border:1px solid var(--line); border-radius:6px; padding:26px;">
-        <h3 style="font-size:1.05rem; color:var(--navy-deep); margin-bottom:14px;">Where you're covered</h3>
-        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;">
-          <li style="display:flex; gap:10px; font-size:.94rem; color:var(--ink);"><span style="color:#2E7D46; font-weight:700;">✓</span> Western Pennsylvania</li>
-          <li style="display:flex; gap:10px; font-size:.94rem; color:var(--ink);"><span style="color:#2E7D46; font-weight:700;">✓</span> 
-            The flat parts of Ohio <span class="mono" style="font-size:.76rem; color:var(--ink-soft);">(boundary determined case-by-case)</span></li>
-          <li style="display:flex; gap:10px; font-size:.94rem; color:var(--ink);"><span style="color:#2E7D46; font-weight:700;">✓</span> Las Vegas, Nevada</li>
-        </ul>
-        <hr style="border:none; border-top:1px solid var(--line); margin:18px 0;">
-        <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;">
-          <li style="display:flex; gap:10px; font-size:.94rem; color:var(--ink-soft);"><span style="color:var(--alarm); font-weight:700;">✕</span> Nowhere in New Jersey</li>
-          <li style="display:flex; gap:10px; font-size:.94rem; color:var(--ink-soft);"><span style="color:var(--alarm); font-weight:700;">✕</span> Nowhere in Indiana</li>
-        </ul>
-      </div>
-
-      <div style="background:var(--navy-deep); border-radius:6px; padding:26px; color:#DCE3EF;">
-        <h3 style="font-size:1.05rem; color:#fff; margin-bottom:6px;">Total insured value</h3>
-        <p style="color:#9AA6C0; font-size:.86rem;">As calculated by our proprietary actuarial formula:</p>
-        <div class="mono" style="background:#0F1729; border:1px solid #2A3653; border-radius:4px; padding:16px; margin-top:14px; font-size:1rem; color:#B7C2DC; text-align:center; line-height:1.9;">
-          5 + (sin²θ + cos²θ − 1) · (ln(e) − 1) · <span style="display:inline-block; text-align:center; vertical-align:middle;"><span style="display:block; border-bottom:1px solid #B7C2DC; padding:0 2px;">999</span><span style="display:block;">999</span></span>
-        </div>
-        <div style="text-align:center; margin-top:18px;">
-          <a class="btn btn-primary" id="revealPayout" style="width:100%; justify-content:center;">Solve for my payout</a>
-        </div>
-        <div id="payoutResult" style="text-align:center; margin-top:16px; display:none;">
-          <div style="font-family:'Zilla Slab', serif; font-size:2.4rem; color:var(--brass); font-weight:700;">$5.00</div>
-          <div style="font-size:.78rem; color:#8E9BB8; margin-top:4px;">maximum lifetime payout, all tiers, verified twice</div>
-        </div>
-      </div>
-    </div>
-    <p style="font-size:.76rem; color:var(--ink-soft); margin-top:16px; max-width:70ch;">Note: since sin²θ + cos²θ always equals 1 and ln(e) always equals 1, 
-      both bracketed terms resolve to zero regardless of θ, leaving a total insured value of exactly $5.00 in all cases. 
-      We consider this a feature, not an oversight.</p>
-  </div>
-</section>
-
-<section id="coverage">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">COVERAGE TIERS</div>
-      <h2>Three ways to sleep soundly tonight</h2>
-      <p>Every policy is fully underwritten against an event that has not occurred anywhere in our covered territory's recorded geological history,
-         and — per our actuaries — is not expected to. All tiers share the same $5.00 total insured value; higher tiers add service, not payout.</p>
-    </div>
-
-    <div class="plans">
-      <div class="plan">
-        <div class="plan-name">Skinny BodyBuilder — Basic</div>
-        <div class="plan-tag">For the cautiously unbothered</div>
-        <div class="plan-price"><span class="num">$14</span><span class="per">/ month</span></div>
-        <hr>
-        <ul>
-          <li>✓ Ashfall cleanup, up to $2,000</li>
-          <li>✓ Emergency air-filter replacement</li>
-          <li>✓ 24/7 seismic hotline (unstaffed after 6pm)</li>
-          <li>✓ One (1) commemorative lapel pin</li>
-        </ul>
-        <a href="#quote" class="btn btn-ghost" style="color:var(--navy-deep); border-color:var(--line);">Select Basic</a>
-      </div>
-
-      <div class="plan featured">
-        <div class="plan-badge">MOST CHOSEN</div>
-        <div class="plan-name">Shaved Goat — Premium</div>
-        <div class="plan-tag">For the reasonably prepared</div>
-        <div class="plan-price"><span class="num">$29</span><span class="per">/ month</span></div>
-        <hr>
-        <ul>
-          <li>✓ Everything in Basic</li>
-          <li>✓ Full dwelling replacement, lava-related</li>
-          <li>✓ Livestock and lawn-gnome relocation</li>
-          <li>✓ Priority evacuation routing (theoretical)</li>
-          <li>✓ Two (2) commemorative lapel pins</li>
-        </ul>
-        <a href="#quote" class="btn btn-primary">Select Premium</a>
-      </div>
-
-      <div class="plan">
-        <div class="plan-name">Genghis Khan — Platinum</div>
-        <div class="plan-tag">For the professionally paranoid</div>
-        <div class="plan-price"><span class="num">$61</span><span class="per">/ month</span></div>
-        <hr>
-        <ul>
-          <li>✓ Everything in Premium</li>
-          <li>✓ New-caldera legal defense fund</li>
-          <li>✓ Concierge magma-flow rerouting consult</li>
-          <li>✓ Complimentary annual seismograph tune-up</li>
-          <li>✓ Framed certificate of preparedness</li>
-        </ul>
-        <a href="#quote" class="btn btn-ghost" style="color:var(--navy-deep); border-color:var(--line);">Select Platinum</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="monitor" class="monitor">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">GEOLOGIC SURVEILLANCE</div>
-      <h2>Territory Volcanic Activity Monitor</h2>
-      <p>Our in-house Department of Magmatic Affairs watches the ground beneath Western PA, flat Ohio, and Las Vegas so you don't have to. 
-        Updated continuously, in the sense that nothing ever changes.</p>
-    </div>
-    <div class="tickerbox">
-      <div class="line"><b>[STATUS]</b> Mount Nothingness (Franklin County, OH) — dormant, as ever</div>
-      <div class="line"><b>[STATUS]</b> Allegheny Plateau (Western PA) — geologically uneventful, as contracted</div>
-      <div class="line"><b>[STATUS]</b> Las Vegas Strip — no seismic activity beyond foot traffic</div>
-      <div class="line flag"><b>[ADVISORY]</b> Soil composition in Licking County, OH "remains soil"</div>
-      <div class="line"><b>[STATUS]</b> Lake Erie — still a lake</div>
-      <div class="line flag"><b>[ADVISORY]</b> New Jersey and Indiana — status not monitored; not our territory, not our problem</div>
-      <div class="line"><b>[STATUS]</b> Territory-wide magma chamber count — unchanged at zero</div>
-      <div class="line flag"><b>[ADVISORY]</b> Analysts describe risk trend as "flat, and getting flatter"</div>
-      <div class="line"><b>[STATUS]</b> Next scheduled review — whenever we remember to</div>
-    </div>
-  </div>
-</section>
-
-<section id="testimonials">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">POLICYHOLDERS</div>
-      <h2>Policyholders sleeping better already</h2>
-    </div>
-    <div class="testis">
-      <div class="testi">
-        <div class="stars">★★★★★</div>
-        <p>"I don't know when Ohio's volcano is coming. Nobody does. That's what scares me, and that's why I'm covered."</p>
-        <div class="who"><b>Josh Smith</b> — Policyholder, Mansfield, OH</div>
-      </div>
-      <div class="testi">
-        <div class="stars">★★★★★</div>
-        <p>"When did I sign up for this?"</p>
-        <div class="who"><b>Even Como</b> — Policyholder, Pittsburgh, PA</div>
-      </div>
-      <div class="testi">
-        <div class="stars">★★★★★</div>
-        <p>"I asked why Vegas is covered and nowhere in Indiana is. Nobody could explain it. I signed anyway."</p>
-        <div class="who"><b>Dane Jones</b> — Policyholder, Las Vegas, NV</div>
-      </div>
-       <div class="testi">
-        <div class="stars">★★★★★</div>
-        <p>"I wanted to sign up for this insurance since I am deathly afraid of volcanoes. However, they said they don't cover Indiana. I completely understand."</p>
-        <div class="who"><b>Ella Mecea</b> — Policyholder, Indianapolis, IN</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="claims">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">CLAIMS PROCESS</div>
-      <h2>If the unthinkable finally thinks itself</h2>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="stepno">STEP 01</div>
-        <h3>Confirm eruption</h3>
-        <p>Check for lava. If lava is present, proceed to Step 02. If uncertain, it is probably not lava.</p>
-      </div>
-      <div class="step">
-        <div class="stepno">STEP 02</div>
-        <h3>Call the hotline</h3>
-        <p>Reach our claims line at your earliest convenience, ideally before the phone lines melt.</p>
-      </div>
-      <div class="step">
-        <div class="stepno">STEP 03</div>
-        <h3>Document the loss</h3>
-        <p>Photograph the affected volcano, the affected property, and, if time allows, yourself looking vindicated.</p>
-      </div>
-      <div class="step">
-        <div class="stepno">STEP 04</div>
-        <h3>Receive payout</h3>
-        <p>Funds are disbursed within 5–7 business days, geology permitting.</p>
-      </div>
-    </div>
-    <div class="hero-ctas"><a href="claims.html" class="btn btn-primary">File a claim</a><a href="monitor.html" class="btn btn-outline">Check the Risk Monitor</a></div>
-  </div>
-</section>
-
-<section id="faq" style="background:var(--paper-card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">QUESTIONS, ANSWERED HONESTLY</div>
-      <h2>Frequently Asked Questions</h2>
-    </div>
-    <div style="max-width:760px;">
-      <details class="faq-item">
-        <summary>Do any of your covered areas actually have volcanoes?</summary>
-        <p class="faq-a">No. Western Pennsylvania, flat Ohio, and Las Vegas have no volcanoes, no volcanic history, and no geological mechanism by which one could plausibly form. We consider this a temporary condition, territory-wide.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Why these three places specifically?</summary>
-        <p class="faq-a">That information is not available at this time. The founding charter simply lists them, in that order, with New Jersey and Indiana crossed out beneath.</p>
-      </details>
-      <details class="faq-item">
-        <summary>So why do I need this insurance?</summary>
-        <p class="faq-a">Because "it's never happened" is not the same as "it can't happen," and we would rather you hear that from us than from a geologist standing in your yard.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Has Insurance Mutual ever paid out a claim?</summary>
-        <p class="faq-a">Not yet. We remain fully prepared to, and frankly a little eager.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Is this covered under my regular homeowner's policy?</summary>
-        <p class="faq-a">Almost certainly not, on account of nobody else selling this.</p>
-      </details>
-      <details class="faq-item">
-        <summary>What about New Jersey or Indiana?</summary>
-        <p class="faq-a">Not eligible. This is not a data gap — it is a decision, made once, and never revisited. No Regrets.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I cancel anytime?</summary>
-        <p class="faq-a">Yes, though we'll ask you to reconsider, gently, and only once.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section id="quote">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-kicker">GET COVERED</div>
-      <h2>See your personalized premium</h2>
-    </div>
-    <div class="calc">
+    <article class="feature">
       <div>
-        <h3>Free Risk Assessment</h3>
-        <p>Answer two questions. Our underwriting model does the rest. Results are indicative and, statistically, extremely favorable.</p>
-        <div class="field">
-          <label for="county">Location</label>
-          <select id="county">
-            <option>Franklin County, OH</option>
-            <option>Cuyahoga County, OH</option>
-            <option>Licking County, OH</option>
-            <option>Allegheny County, PA</option>
-            <option>Greene County, PA</option>
-            <option>Las Vegas, NV</option>
-            <option>New Jersey (any county)</option>
-            <option>Indiana (any county)</option>
-            <option>Other / Unsure</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="proximity">Distance from nearest volcano</label>
-          <select id="proximity">
-            <option>Unknown</option>
-            <option>Very far, presumably</option>
-            <option>I have not checked</option>
-            <option>I would rather not think about it</option>
-          </select>
-        </div>
-        <a class="btn btn-primary" id="calcBtn">Calculate My Premium</a>
+        <div class="issue">THE DORMANT DISPATCH · ISSUE 14 · SEPTEMBER 2026</div>
+        <h2>Still nothing, and what that means for you</h2>
+        <p class="dek">Another month without a single eruption in covered territory. Our CEO on why the silence is the product, the pin shortage that isn't, and a quiet word about Indiana.</p>
+        <details>
+          <summary><span class="btn btn-primary">Read the issue</span></summary>
+          <div class="article">
+            <p>Dear policyholders,</p>
+            <p>September has come and gone, geologically speaking, without incident. The Allegheny Plateau remained a plateau. Lake Erie remained a lake. Flat Ohio held its flatness with a discipline I can only admire. I am told Las Vegas was hot, which our Department of Magmatic Affairs has once again traced to the sun.</p>
+            <p>Some of you have written to ask whether a month like this means your coverage is wasted. I would put it differently. Every month without a volcano is a month in which your policy performed exactly as designed. You were covered. Nothing happened. Both of those things were true at once, and one of them cost only twenty-nine dollars.</p>
+            <p>A note on pins. Rumors of a lapel pin shortage are unfounded. We hold 497. Gordon would like you to know that he is ready.</p>
+            <p>Finally, several readers in Indiana have again asked to be added to our territory. We read every letter. The answer is in the charter, and the charter is in pencil, and we are not going to erase it.</p>
+            <p>Sleep soundly,</p>
+            <p class="sig">Harlan Voss, Chief Executive Officer</p>
+          </div>
+        </details>
       </div>
-      <div class="quote-result">
-        <div class="amt" id="quoteAmt">$29<span style="font-size:1.1rem; color:var(--ink-soft); font-weight:500;">/mo</span></div>
-        <div class="amt-sub">Estimated Premium Plan, based on your inputs</div>
-        <div class="risklabel" id="quoteRisk">RISK LEVEL: NEGLIGIBLE</div>
+      <div class="toc">
+        <h3>In this issue</h3>
+        <ol>
+          <li>A letter from the CEO</li>
+          <li>Monthly territory report: nothing</li>
+          <li>Pin inventory, reassuringly high</li>
+          <li>Reader mail from Indiana, declined with respect</li>
+          <li>Puzzle page: find the volcano (there isn't one)</li>
+        </ol>
       </div>
+    </article>
+  </div>
+</section>
+
+<section id="releases" style="padding-top:20px;">
+  <div class="wrap">
+    <div class="news-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:24px;">
+          <div class="section-kicker">NEWS &amp; ANNOUNCEMENTS</div>
+          <h2>Latest from Insurance Mutual</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Filter by type">
+          <button class="filter" data-f="all" aria-pressed="true">All</button>
+          <button class="filter" data-f="press" aria-pressed="false">Press releases</button>
+          <button class="filter" data-f="adv" aria-pressed="false">Advisories</button>
+          <button class="filter" data-f="stmt" aria-pressed="false">Statements</button>
+        </div>
+        <div id="releaseList"></div>
+      </div>
+
+      <aside>
+        <div class="panel signup">
+          <h3>Get The Dormant Dispatch</h3>
+          <p>One email a month, sent on the first Tuesday, containing whatever happened. Usually nothing, lovingly written up.</p>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" type="email" autocomplete="email" placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label class="choice"><input type="radio" name="freq" value="monthly" checked> Monthly</label>
+            <label class="choice"><input type="radio" name="freq" value="erupt"> Only if something erupts</label>
+          </div>
+          <button class="btn btn-primary" id="subBtn">Subscribe</button>
+          <div id="subMsg" class="msg" hidden></div>
+        </div>
+        <div class="panel press">
+          <h3>Press inquiries</h3>
+          <p>Journalists may contact our communications office by letter. Replies go out within 5–7 business days, geology permitting. Correspondence containing the letters A, B, C, D, F, or X may be delayed pending review.</p>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
+
 
 <footer>
   <div class="wrap">
@@ -689,52 +500,6 @@
 </footer>
 
 <script>
-  // days-since counter, ticking up like a "live" stat
-  (function(){
-    const el = document.getElementById('daysCounter');
-    let base = 4317205;
-    setInterval(() => {
-      // extremely rarely "increments" to feel alive without being distracting
-    }, 4000);
-  })();
-
-  // gauge needle settle animation on load
-  window.addEventListener('load', () => {
-    const needle = document.getElementById('needle');
-    setTimeout(() => { needle.style.transform = 'rotate(-84deg)'; }, 300);
-  });
-
-  // "solve" the insured-value formula — always resolves to $5.00, dramatically
-  document.getElementById('revealPayout').addEventListener('click', () => {
-    const result = document.getElementById('payoutResult');
-    result.style.display = result.style.display === 'none' ? 'block' : 'none';
-  });
-
-  // goofy "calculator" — premiums vary, but payout is fixed at the real $5.00
-  document.getElementById('calcBtn').addEventListener('click', () => {
-    const county = document.getElementById('county').value;
-    const prox = document.getElementById('proximity').value;
-    const amtEl = document.getElementById('quoteAmt');
-    const riskEl = document.getElementById('quoteRisk');
-
-    if (county === 'New Jersey (any county)' || county === 'Indiana (any county)') {
-      amtEl.innerHTML = 'We don\'t like you';
-      riskEl.textContent = 'NOT ELIGIBLE IN THIS TERRITORY';
-      return;
-    }
-
-    let base = 29;
-    if (prox === 'I would rather not think about it') base += 18;
-    if (prox === 'I have not checked') base += 9;
-    if (county === 'Licking County, OH') base += 4; // no reason given
-
-    amtEl.innerHTML = '$' + base + '<span style="font-size:1.1rem; color:var(--ink-soft); font-weight:500;">/mo</span>';
-    riskEl.textContent = 'MAX PAYOUT: $5.00, ALWAYS';
-  });
-</script>
-
-
-<script>
   (function(){
     const b = document.getElementById('menuBtn'), n = document.getElementById('siteNav');
     if(!b) return;
@@ -745,5 +510,44 @@
     });
   })();
 </script>
+<script>
+
+  const items = [
+    ['2026-09-15','adv','Licking County soil tested again; still soil','Our eleventh retest this year confirms the advisory remains in effect, and the soil remains soil.'],
+    ['2026-08-28','press','Second commemorative lapel pin design announced','The new design will ship to Premium policyholders. The first design remains available, 497 of it.'],
+    ['2026-08-03','stmt','On the continued exclusion of New Jersey and Indiana','Our position has not changed and will not change. This statement is issued annually so that no one has to ask.'],
+    ['2026-07-19','adv','Las Vegas heat readings are summer, not magma','Staff are reminded that 103°F in July is the season. Please stop calling the hotline about it.'],
+    ['2026-06-30','press','Seismic hotline extends hours to 6:05pm','Following sustained demand from one caller, the hotline will now stay open an additional five minutes.'],
+    ['2026-06-02','stmt','Regarding the Texas void clause','The clause predates current management. We have looked into it and would prefer not to discuss what we found.'],
+    ['2026-05-11','press','Actuaries re-verify $5.00 total insured value','Findings unchanged. The Chief Actuary described the result as "the same, which is the point."'],
+    ['2026-04-20','adv','Lake Erie confirmed a lake after routine inspection','Buoy 7 reports normal lake conditions. No steam, no venting, one boat.'],
+    ['2026-03-09','stmt','Clarification on coverage during concerts','Coverage is suspended during any Morgan Wallen concert within territory, per the fine print. Other concerts are fine.']
+  ];
+  const labels = {press:['Press release','chip-press'], adv:['Advisory','chip-adv'], stmt:['Statement','chip-stmt']};
+  const list = document.getElementById('releaseList');
+  function render(f){
+    const rows = items.filter(i => f === 'all' || i[1] === f);
+    list.innerHTML = rows.map(([d,t,h,p]) => {
+      const date = new Date(d + 'T12:00:00').toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+      return `<article class="release"><time datetime="${d}">${date}</time><div><span class="chip ${labels[t][1]}">${labels[t][0]}</span><h3>${h}</h3><p>${p}</p></div></article>`;
+    }).join('') || '<p class="empty">Nothing here yet.</p>';
+  }
+  document.querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.filter').forEach(x => x.setAttribute('aria-pressed', x === b));
+    render(b.dataset.f);
+  }));
+  render('all');
+
+  document.getElementById('subBtn').addEventListener('click', () => {
+    const m = document.getElementById('subMsg'), e = document.getElementById('email').value.trim();
+    m.hidden = false;
+    if(!/^\S+@\S+\.\S+$/.test(e)){ m.className = 'msg msg-warn'; m.textContent = 'Enter a valid email address to subscribe.'; return; }
+    const erupt = document.querySelector('input[name=freq]:checked').value === 'erupt';
+    m.className = 'msg msg-ok';
+    m.textContent = erupt ? 'Subscribed. Expect silence. If you ever hear from us, run.' : 'Subscribed. Your first issue arrives on the first Tuesday of next month.';
+  });
+
+</script>
+
 </body>
 </html>
