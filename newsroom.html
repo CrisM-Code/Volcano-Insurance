@@ -343,6 +343,65 @@
   .press h3{font-size:1.05rem;}
   .press p{font-size:.88rem; margin-top:8px;}
 
+  /* ---------- mobile refinements (phones only; desktop untouched) ---------- */
+  @media (max-width:600px){
+    html{-webkit-text-size-adjust:100%;}
+    body{overflow-x:hidden;}
+    svg, img, canvas{max-width:100%;}
+    .wrap{padding:0 18px;}
+    .header-inner{padding:12px 18px;}
+    .brand-name{font-size:1.05rem;}
+    .brand-sub{display:none;}
+    nav{padding:6px 18px 14px;}
+    nav a{padding:15px 0;}
+    .menu-btn{min-height:44px; padding:8px 16px;}
+    .hero{padding:44px 0 40px;}
+    .page-hero{padding:44px 0 36px;}
+    .hero-grid{gap:32px;}
+    .eyebrow-line{font-size:.74rem; align-items:flex-start;}
+    .eyebrow-line .dot{margin-top:5px; flex:none;}
+    .hero p.lede, .page-hero .lede{font-size:1rem;}
+    .hero-ctas{flex-direction:column; gap:10px;}
+    .hero-ctas .btn{justify-content:center; width:100%;}
+    .btn{min-height:46px;}
+    .gauge-card{padding:18px 16px 16px;}
+    .gauge-wrap svg{width:100%; height:auto; max-width:260px;}
+    .hero-stats{gap:14px; margin-top:28px;}
+    section{padding:44px 0;}
+    .section-head{margin-bottom:26px;}
+    .territory-grid{grid-template-columns:1fr !important;}
+    .territory-grid > div{padding:20px !important;}
+    .territory-grid .mono{font-size:.86rem !important; overflow-x:auto;}
+    .plan{padding:22px 18px 20px;}
+    .calc{padding:20px 18px; gap:22px;}
+    .quote-result .amt{font-size:2.2rem;}
+    .panel{padding:20px 16px;}
+    .field select, .field input, .field textarea{font-size:16px; min-height:46px;}
+    .field textarea{min-height:110px;}
+    .choice{padding:14px;}
+    .filters{flex-wrap:nowrap; overflow-x:auto; margin-left:-18px; margin-right:-18px; padding:0 18px 6px;
+      -webkit-overflow-scrolling:touch; scrollbar-width:none;}
+    .filters::-webkit-scrollbar{display:none;}
+    .filter{flex:none; min-height:40px; padding:8px 16px;}
+    .faq-item summary{padding:16px 0;}
+    .tickerbox{padding:16px 14px; font-size:.78rem;}
+    .tickerbox .line{flex-wrap:wrap; gap:2px 10px; overflow-wrap:anywhere;}
+    .wiz-actions .btn{flex:1 1 100%; justify-content:center;}
+    .review{grid-template-columns:1fr; gap:2px;}
+    .review dd{margin-bottom:10px;}
+    .check{padding:18px 14px 16px;}
+    .check-pay{flex-wrap:wrap; gap:10px;}
+    .check-pay .payee{flex:1 1 100%; order:2;}
+    .check-bottom{flex-wrap:wrap; gap:14px;}
+    .micr{font-size:.66rem; letter-spacing:.06em; overflow-wrap:anywhere;}
+    .readings{gap:8px 12px;}
+    .station-panel{padding:20px 16px;}
+    .seis-screen canvas{height:180px;}
+    .chart-card{padding:16px 10px 10px;}
+    .foot-grid{flex-direction:column; gap:24px;}
+    .foot-links{gap:28px;}
+    .foot-col a{padding:4px 0; margin-bottom:3px;}
+  }
 </style>
 </head>
 <body>
